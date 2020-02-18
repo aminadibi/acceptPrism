@@ -54,16 +54,12 @@ gateway<-function(...)
   arguments$api_key<-NULL
   arguments$session_id<-NULL
   
-  if(!is.null(session_id)) restore_session(session_id)
-  
   if(length(arguments)==0) {
     out<-eval(parse(text=paste(func,"()")))
     }
   else {
     out<-do.call(func, args = arguments)
     }
-  
-  if(!is.null(session_id)) save_session(session_id)
   
   return(jsonlite::toJSON(out))
 }
