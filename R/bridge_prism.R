@@ -4,26 +4,19 @@
 #' If one of the columns in model_input is missing, it will replace with the default column
 #' It will check all the columns of the patient_data object; if one is missing, it will
 #' replace with the default, and will remove any extra columns
-#' @param model_input A list/json object with "patient_data", "random_sampling_N", "random_distribution_iteration",
-#' and "calculate_CIs" as columns
+#' @param model_input A list/json object with "patient_data"
 #' @return Returns a list of results
 #' @export
 model_run<-function(model_input=NULL)
 {
 
-     if(is.null(model_input$random_sampling_N)) {
-       model_input$random_sampling_N = 100
-     }
-     if(is.null(model_input$calculate_CIs)) {
-       model_input$calculate_CIs = FALSE
-     }
-    
+
     if (is.null(model_input)) {
       stop("no inputs were submitted")
     }
     #model_input <- as.data.frame(model_input)
   
-    results <- accept(model_input, random_sampling_N = model_input$random_sampling_N)
+    results <- accept(data=model_input)
      
   
     #plotting
