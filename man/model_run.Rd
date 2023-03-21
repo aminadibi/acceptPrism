@@ -7,8 +7,7 @@
 model_run(model_input = NULL)
 }
 \arguments{
-\item{model_input}{A list/json object with "patient_data", "random_sampling_N", "random_distribution_iteration",
-and "calculate_CIs" as columns}
+\item{model_input}{A list/json object with "patient_data"}
 }
 \value{
 Returns a list of results
